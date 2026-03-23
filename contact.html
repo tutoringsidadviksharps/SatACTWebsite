@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>SATACT Tutoring - Contact</title>
+    <meta
+      name="description"
+      content="Contact SATACT Tutoring to ask about SAT/ACT tutoring and get a suggested plan."
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div id="particles-js" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+          aria-pressed="false"
+          title="Toggle theme"
+        >
+          <!-- Sun icon -->
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0-16a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 18a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1ZM4.222 5.636a1 1 0 0 1 1.415 0l.707.707A1 1 0 1 1 5.93 7.758l-.707-.707a1 1 0 0 1-1.001-1.415Zm14.434 14.434a1 1 0 0 1 1.415 0l.707.707a1 1 0 0 1-1.415 1.415l-.707-.707a1 1 0 0 1 0-1.415ZM1 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H2a1 1 0 0 1-1-1Zm20 0a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1ZM5.636 19.778a1 1 0 0 1 0-1.415l.707-.707A1 1 0 1 1 7.758 18.07l-.707.707a1 1 0 0 1-1.415 0ZM19.778 4.222a1 1 0 0 1 0-1.415l.707-.707a1 1 0 0 1 1.415 1.415l-.707.707a1 1 0 0 1-1.415 0Z"
+              fill="currentColor"
+            />
+          </svg>
+
+          <!-- Moon icon -->
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M21 14.5A8.5 8.5 0 0 1 9.5 3a1 1 0 0 0-1.21 1.28A10 10 0 1 0 22.28 15.7a1 1 0 0 0-1.28-1.2Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+
+        <a class="brand" href="index.html" aria-label="SATACT Tutoring home">
+          <span class="brand-mark" aria-hidden="true">SAT/ACT</span>
+          <span class="brand-name">SATACT Tutoring</span>
+        </a>
+
+        <div class="header-right">
+          <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </button>
+
+          <nav class="nav" aria-label="Primary navigation">
+          <a href="index.html#about">About</a>
+          <a href="tutors.html">Tutors</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="section">
+        <div class="container contact-grid">
+          <div class="contact-copy">
+            <h2>Contact</h2>
+            <p class="section-subtitle">
+              Fill out the form below and we'll reply within one business day with a suggested plan tailored to your goals.
+            </p>
+
+            <div class="contact-points">
+              <div class="point">
+                <div class="point-title">Response time</div>
+                <div class="point-value">Usually within 1 business day</div>
+              </div>
+              <div class="point">
+                <div class="point-title">Best fit</div>
+                <div class="point-value">SAT/ACT learners aiming for measurable improvement</div>
+              </div>
+              <div class="point">
+                <div class="point-title">Location</div>
+                <div class="point-value">Online (live sessions)</div>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-section">
+              <h3 class="form-section-title">Contact information</h3>
+              <div class="field-row">
+                <label class="field">
+                  <span>Full name</span>
+                  <input name="name" type="text" autocomplete="name" placeholder="e.g. Jane Smith" required />
+                </label>
+                <label class="field">
+                  <span>Email</span>
+                  <input name="email" type="email" autocomplete="email" placeholder="e.g. jane@email.com" required />
+                </label>
+              </div>
+              <label class="field">
+                <span>Phone <em class="field-optional">(optional)</em></span>
+                <input name="phone" type="tel" autocomplete="tel" placeholder="Best number to reach you" />
+              </label>
+            </div>
+
+            <div class="form-section">
+              <h3 class="form-section-title">Test details</h3>
+              <div class="field-row">
+                <label class="field">
+                  <span>Test type</span>
+                  <select name="testType" required>
+                    <option value="">Select one</option>
+                    <option value="SAT">SAT</option>
+                    <option value="ACT">ACT</option>
+                    <option value="Both">Both</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span>Grade <em class="field-optional">(optional)</em></span>
+                  <select name="grade">
+                    <option value="">Select</option>
+                    <option value="8">8th</option>
+                    <option value="9">9th</option>
+                    <option value="10">10th</option>
+                    <option value="11">11th</option>
+                    <option value="12">12th</option>
+                    <option value="other">Other</option>
+                  </select>
+                </label>
+              </div>
+              <div class="field-row">
+                <label class="field">
+                  <span>Target score <em class="field-optional">(optional)</em></span>
+                  <input name="targetScore" type="text" placeholder="e.g. 1400 SAT or 32 ACT" />
+                </label>
+                <label class="field">
+                  <span>Planned test date <em class="field-optional">(optional)</em></span>
+                  <input name="testDate" type="text" placeholder="e.g. March 2025" />
+                </label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <label class="field">
+                <span>Message</span>
+                <textarea name="message" rows="4" placeholder="Tell us about your goals, current preparation, or any questions you have. The more we know, the better we can tailor our response." required></textarea>
+              </label>
+            </div>
+
+            <button class="btn btn-primary btn-full" type="submit">Request consultation</button>
+
+            <p class="form-note muted" id="formNote" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p class="muted">
+          (c) <span id="year"></span> SATACT Tutoring. All rights reserved.
+        </p>
+        <div class="footer-links">
+          <a href="index.html#about">About</a>
+          <a href="tutors.html">Tutors</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  </body>
+</html>
+
