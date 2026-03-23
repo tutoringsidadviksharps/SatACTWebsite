@@ -59,14 +59,9 @@ function setupContactForm() {
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
     const message = String(data.get("message") || "").trim();
-    const phone = String(data.get("phone") || "").trim();
-    const testType = String(data.get("testType") || "").trim();
-    const grade = String(data.get("grade") || "").trim();
-    const targetScore = String(data.get("targetScore") || "").trim();
-    const testDate = String(data.get("testDate") || "").trim();
 
-    if (!name || !email || !message || !testType) {
-      note.textContent = "Please fill out all required fields.";
+    if (!name || !email || !message) {
+      note.textContent = "Please fill out all fields.";
       return;
     }
 
@@ -83,11 +78,6 @@ function setupContactForm() {
         body: JSON.stringify({
           name,
           email,
-          phone: phone || undefined,
-          testType,
-          grade: grade || undefined,
-          targetScore: targetScore || undefined,
-          testDate: testDate || undefined,
           message,
           _replyto: email
         }),
@@ -116,6 +106,67 @@ setupSmoothScroll();
 setupNavToggle();
 setupFooterYear();
 setupContactForm();
+setupCustomCursor();
+
+function setupCustomCursor() {
+  const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  const hasFinePointer = window.matchMedia?.("(pointer: fine)")?.matches;
+  if (reducedMotion || !hasFinePointer) return;
+
+  const dot = document.createElement("div");
+  dot.className = "cursor-dot hidden";
+  dot.setAttribute("aria-hidden", "true");
+  document.body.appendChild(dot);
+  document.body.classList.add("custom-cursor");
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let dotX = 0;
+  let dotY = 0;
+  let isHovering = false;
+  let isVisible = false;
+
+  const lerp = (a, b, t) => a + (b - a) * t;
+
+  function animate() {
+    dotX = lerp(dotX, mouseX, 0.5);
+    dotY = lerp(dotY, mouseY, 0.5);
+    dot.style.transform = `translate(${dotX}px, ${dotY}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!isVisible) {
+      dot.classList.remove("hidden");
+      isVisible = true;
+    }
+  });
+
+  document.addEventListener("mouseleave", () => {
+    dot.classList.add("hidden");
+    isVisible = false;
+  });
+
+  document.addEventListener("mouseenter", () => {
+    if (mouseX || mouseY) dot.classList.remove("hidden");
+  });
+
+  const hoverSelectors = "a, button, [role='button'], .btn, .nav-toggle, .theme-toggle";
+  document.querySelectorAll(hoverSelectors).forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      isHovering = true;
+      dot.classList.add("hover");
+    });
+    el.addEventListener("mouseleave", () => {
+      isHovering = false;
+      dot.classList.remove("hover");
+    });
+  });
+}
+
 // Theme toggle (light/dark) + background animation (particles.js)
 const THEME_KEY = "satact-theme";
 
